@@ -1,0 +1,41 @@
+{% extends  'home.html'%}
+{% load bootstrap4 %}
+{% load static %}
+{% block title %}
+learno  |
+Login
+{% endblock %}
+
+
+{% block header %}
+<div class="mb-5 element-animate">
+  <h1>Login</h1>
+</div>
+{% endblock %}
+{% block main %}
+
+<section class="site-section bg-light">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-5 box">
+        <h2 class="mb-5">Log in with your account</h2>
+<form class="form-group" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <button type="submit" class="btn btn-success">Sign In</button>
+    <br>
+    <p><a href="{% url 'password_reset' %}">reset password</a></p>
+    <br>
+    <a href="{% url 'social:begin' 'google-oauth2' %}">Signup with Google</a><br>
+    <a href="{% url 'social:begin' 'github' %}">Signup with GitHub</a>
+   <br>
+   <a href="{% url 'signup' %}"> create new account</a>
+  </form>
+</div>
+</div>
+</div>
+</section>
+
+
+
+{% endblock %}

@@ -1,0 +1,48 @@
+
+textarea{
+   resize: none;
+
+}
+
+.new-code img {
+  width: 40%;
+  height: 40%;
+}
+
+.code img, .web img  {
+  width: 15%;
+  height: 15%;
+  margin-right: 2px;
+
+}
+
+.container {
+  padding: -1;
+}
+
+.card, .new-code{
+  margin-top: 2rem;
+  -webkit-box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.2);
+    -ms-box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+.main-ide .container{
+  margin-top:-6rem;
+}
+
+.main-ide .btn {
+  padding: 5px 20px;
+  margin: auto;
+}
+
+.main-ide .btn-run{
+    padding: 1rem 3rem;
+}
+
+@media (max-height: 600px) {
+  .main-ide .container{
+    margin-top:-20%;
+  }
+}

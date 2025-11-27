@@ -1,0 +1,30 @@
+{% extends 'home.html' %}
+{% block main %}
+<br>
+<br>
+<br>
+
+<div class="container">
+  <div class="row">
+    {% for stage in stages  %}
+       {% if stage.approved  %}
+    <div class="col">
+
+
+    <div class="card">
+      <div class="card-body">
+        <a  href="{% url 'questions' stage.name  %}">{{stage.name}}</a>
+        <span data-color = '{{stage.level.color}}'  style="background-color:{{stage.level.color}};"
+        class="badge">{{stage.level.get_text_display}}</span>
+    {%if stage.id in completed_stages %}
+          <i class="far fa-check-circle"></i>
+         {% endif %}
+      </div>
+
+    </div>
+      </div>
+      {%endif%}
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

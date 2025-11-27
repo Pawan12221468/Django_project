@@ -1,0 +1,105 @@
+{% extends 'home.html' %}
+{% load index %}
+{% block title %}{{subject.title}}{% endblock %}
+
+{% block bar %}
+{{ block.super }}
+{% endblock %}
+
+
+{% block header %}
+<h1>Level Up Your Skills</h1>
+<p class="lead">See our courses Below. Learn something new every day with Learno lorem ipsum dolor sit amet.</p>
+
+{% endblock %}
+
+
+{% block main %}
+<style media="screen">
+
+</style>
+
+<section class="site-section bg-light">
+  <div class="container">
+    <a href="{% url 'add-course' subject %}"
+    class="btn btn-warning">Suggest Course</a>
+    <div class="row justify-content-center mb-5">
+      <div class="col-md-7 text-center">
+        <h2>{{subject.title}}</h2>
+        <p class="lead">{{subject.description}}</p>
+      </div>
+    </div>
+
+    <div class="row top-course d-flex  justify-content-center">
+      {% for course in top_course %}
+          {% if course.approved %}
+              <div class="col-md-4 col-sm-6 col-12">
+                <a href="{% url  'modules' course.subject.slug course.slug  %}" class="course">
+                  {% if course.photo %}
+                  <img src="{{ course.photo.url }}"
+                 alt="Image placeholder"">
+                  {% endif %}
+
+                  <h2>{{course.title}}</h2>
+                   <p>{{course.overview | truncatewords:"10"}}<p>
+                     <span class="badge badge-dark">
+                       views {{ views|index:forloop.counter0 }}</span>
+                  <p>Enroll Now</p>
+                </a>
+              </div>
+          {% endif %}
+      {% endfor %}
+    </div>
+
+    <!-- END row -->
+
+    <div class="row top-course d-flex  justify-content-center">
+      {% for course in middle_course %}
+          {% if course.approved %}
+      <div class="col-lg-2 col-md-4 col-sm-6 col-12">
+          <a href="{% url  'modules' course.subject.slug course.slug  %}" class="course">
+            {% if course.photo %}
+            <img src="{{ course.photo.url }}"
+           alt="Image placeholder"">
+            {% endif %}
+          <h2>{{course.title}}</h2>
+          <p>{{course.overview | truncatewords:"10"}}<p>
+            <span class="badge badge-dark">
+              views {{ views|index:forloop.counter0 }}</span>
+          <p>Enroll Now</p>
+        </a>
+      </div>
+      {% endif %}
+  {% endfor %}
+
+
+    </div>
+    <!-- END row -->
+
+
+    <div class="row top-course d-flex  justify-content-center">
+      {% for course in bottom_course %}
+          {% if course.approved %}
+              <div class="col-md-4 col-sm-6 col-12">
+                <a href="{% url  'modules' course.subject.slug course.slug  %}" class="course">
+                  {% if course.photo %}
+                  <img src="{{ course.photo.url }}"
+                 alt="Image placeholder"">
+                  {% endif %}
+
+                  <h2>{{course.title}}</h2>
+                   <p>{{course.overview | truncatewords:"10"}}<p>
+                     <span class="badge badge-dark">
+                       views {{ views|index:forloop.counter0 }}</span>
+                  <p>Enroll Now</p>
+                </a>
+              </div>
+          {% endif %}
+      {% endfor %}
+    </div>
+    <!-- END row -->
+  </div>
+</section>
+<!-- END section -->
+
+{% endblock %}

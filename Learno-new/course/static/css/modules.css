@@ -1,0 +1,28 @@
+i {
+  color: #6c757d;
+
+}
+
+.fa-check {
+  color: green;
+}
+
+.fa-exclamation {
+  color: yellow;
+}
+
+.fa-times {
+  color: red;
+}
+
+@media (max-width: 500px ){
+  div img{
+     display: none;
+  }
+ .row .lead {
+   font-size: 25px;
+ }
+  .site-hero {
+    font-size: 10px;
+  }
+}
